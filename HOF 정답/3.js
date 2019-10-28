@@ -5,10 +5,8 @@ const todos = [
 ];
 
 function sortBy(key) {
-  const _todos = [...todos];
-
-  _todos.sort();
-  return _todos;
+  const result = [...todos];
+  return result.sort((a, b) => a[key] > b[key] ? 1 : (a[key] < b[key] ? -1 : 0));
 }
 
 console.log(sortBy('id'));
