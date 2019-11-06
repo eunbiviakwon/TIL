@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="myId" class="class1 class2" style="color: red;">
+   <li>HTML</li>
+   <li>CSS</li>
+   <li>JavaScript</li>
+  </ul>
+</body>
+<script>
+  const $lis = document.querySelectorAll('li');
+  console.log($lis);
+
+  document.querySelector('#myId').innerHTML += '<h1>Hello</h1>';
+  
+
+  // console.log($ul);
+  // $ul.style.color = 'blue';
+  // console.log($ul.className);
+  // console.log([..  .$ul.classList].forEach(item => console.log(item)));
+</script>
+</html>

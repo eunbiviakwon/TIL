@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>todos_list V.2.0.0</title>
+    <style>
+      .input_checkbox:checked + .content{
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" class="input" placeholder="here!here!">
+    <ul class="todos">
+    </ul>
+  </body>
+  <script>
+    let todos = [
+      {id: 1, content: 'HTML', completed: true },
+      {id: 2, content: 'CSS', completed: true },
+      {id: 3, content: 'JavaScript', completed: false },
+    ];
+    const $ul = document.querySelector('.todos');
+    const $input = document.querySelector('.input');
+    // $ul.innerHTML = '<p>최성진</p>';
+    const render = () => {
+      $ul.innerHTML = '';
+      todos.forEach(item => {
+        $ul.innerHTML += `
+          <li>
+            <input id="${item.id}" type="checkbox" class="input_checkbox" ${item.completed ? 'checked' : null}>
+            <label for="${item.id}">${item.content}</label>
+            <button class="remove">X</button>
+          </li>
+        `;
+      })
+    };
+    render();
+    $input.addEventListener('keyup', (sungjin) => {
+      if (sungjin.keyCode !== 13) return;
+      todos = [...todos, { id: 4, content: $input.value, completed: false }];
+      $input.value = '';
+      render();
+    });
+    // input창에 text입력한 후 엔터를 누르면 todos에 할일이 추가돼요
+    const changeChecked = () => {
+      todos = todos.map(item => {
+        return { ...item, completed: !item.completed };
+      })
+    };
+  </script>
+</html>
+
+
+<!-- 1. todos 배열의 요소를 content 라는 key의 값을 가진 객체로 바꿔서 return 하시오.
+2. todos 배열의 요소를 content 라는 key의 값을 가지고,
+   id라는 key의 값이 각 index를 가진 객체로 바꿔서 return 하시오.
+3. todos 배열의 요소를 content 라는 key의 값을 가지고,
+   id라는 key의 값이 각 index를 가지고, completed라는 key의 값이 false를 가진 객체로 바꿔서 return 하시오.
+4. todos 배열에 'sass'를 추가하시오.
+
+1. id값이 1인 요소만 return 하시오.
+2. completed가 true가 아닌 요소만 return 하시오.
+3. content의 값만 return 하시오.
+4. completed의 값만 각 각 배열로 return 하시오.
+5. completed의 값을 모두 false로 바꿔서 return 하시오.
+6. completed의 값을 모둔 반전해서 return 하시오.  -->
