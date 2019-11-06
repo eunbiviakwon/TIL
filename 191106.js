@@ -135,19 +135,21 @@
 
 
 //6
-const solution2 = (todos) => {
-  let result;
-  result = todos.map(item => {
-    return {...item, completed: !item.completed};
-  })
+// const solution2 = (todos) => {
+//   let result;
+//   result = todos.map(item => {
+//     return {...item, completed: !item.completed};
+//   })
 
 
-  return result;
-};
-console.log(solution2([
-  { id: 1, content: 'HTML', completed: false },
-  { id: 2, content: 'CSS', completed: true },
-  { id: 3, content: 'Javascript', completed: false }
-]));
+//   return result;
+// };
+// console.log(solution2([
+//   { id: 1, content: 'HTML', completed: false },
+//   { id: 2, content: 'CSS', completed: true },
+//   { id: 3, content: 'Javascript', completed: false }
+// ]));
+
+
 
 

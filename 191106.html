@@ -19,38 +19,59 @@
     {id: 2, content: 'CSS', completed: true},
     {id: 3, content: 'JavaScript', completed: false}
   ];
+
+ // 0. todos 배열 html에 보이게 하기
   const $ul = document.querySelector('.todos');
   const $input = document.querySelector('.input');
 
-  const render = () => {
-    $ul.innerHTML = '';
-    todos.forEach(item => {
-      $ul.innerHTML += `
-        <li>
-          <input id="${item.id}" type="checkbox" class="input_checkbox" ${item.completed ? 'checked' : null }>
-          <label for="${item.id}">${item.content}</label>
-          <button class="remove">X</button>
-        </li>
-      `;
-    })
-  };
-  render();
-  $input.addEventListener('keyup', (e) => {
-    if (e.keyCode !== 13) return;
-    todos = [...todos, { id: 4, content: $input.value, completed: false}];
-    $input.value = '';
-    render();
-  });
+  // let html = '';
+
+  todos.forEach(item => {
+    $ul.innerHTML += `
+    <li>
+     <label>
+      <input type="checkbox" ${item.completed ? 'checked' : null}>
+      ${item.content}
+     </label>
+    <button class="remove">X</button>
+   </li>`
+  })
 
 
+  //
+
+ // 1. 추가
+ // input의 value값을 ul에 li로 추가하기
+
+ $input.addEventListener('keyup', (e) => {
+   if( e.keyCode !== 13) return;
+   todos = [...todos, {id: 4 , content: $input.value , completed: false}];
+   console.log(todos);
 
 
+   todos.forEach(item => {
+    $ul.innerHTML += `
+    <li>
+     <label>
+      <input type="checkbox" ${item.completed ? 'checked' : null}>
+      ${item.content}
+     </label>
+    <button class="remove">X</button>
+   </li>`
 
 
+  })
+  })
 
 
+ // 2. 업데이트
+ // 렌더, html에 보이게 추가
+ // 3. 변경
+ // 4. 삭제
+  // 버튼 누르면 remove
 
-
+//전체
+//-바사브크립트 따로, 돔 따로 코드 작성하기
 
 
 
