@@ -27,6 +27,7 @@
   // let html = '';
 
   todos.forEach(item => {
+
     $ul.innerHTML += `
     <li>
      <label>
@@ -36,7 +37,6 @@
     <button class="remove">X</button>
    </li>`
   })
-
 
   //
 
@@ -48,9 +48,11 @@
    todos = [...todos, {id: 4 , content: $input.value , completed: false}];
    console.log(todos);
 
+   let html = '';
 
    todos.forEach(item => {
-    $ul.innerHTML += `
+
+    html += `
     <li>
      <label>
       <input type="checkbox" ${item.completed ? 'checked' : null}>
@@ -58,11 +60,15 @@
      </label>
     <button class="remove">X</button>
    </li>`
-
-
-  })
   })
 
+   $ul.innerHTML = html;
+
+  })
+
+  function generateID() {
+    Math.max(todos.length) + 1;
+  }
 
  // 2. 업데이트
  // 렌더, html에 보이게 추가
@@ -71,7 +77,7 @@
   // 버튼 누르면 remove
 
 //전체
-//-바사브크립트 따로, 돔 따로 코드 작성하기
+//-자바브크립트 따로, 돔 따로 코드 작성하기
 
 
 

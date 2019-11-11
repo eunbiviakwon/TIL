@@ -24,16 +24,18 @@
     const $input = document.querySelector('.input');
     // $ul.innerHTML = '<p>최성진</p>';
     const render = () => {
-      $ul.innerHTML = '';
+      let html = '';
+
       todos.forEach(item => {
         $ul.innerHTML += `
           <li>
             <input id="${item.id}" type="checkbox" class="input_checkbox" ${item.completed ? 'checked' : null}>
             <label for="${item.id}">${item.content}</label>
             <button class="remove">X</button>
-          </li>
-        `;
-      })
+          </li>`
+      });
+      $ul.innerHTML = html;
+
     };
     render();
     $input.addEventListener('keyup', (sungjin) => {
